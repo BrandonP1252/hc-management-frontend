@@ -1,16 +1,27 @@
 import './App.css';
-import React, {useState, useEffect} from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import PatientsComponent from './components/patient';
-import Login from './components/login';
+import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
+import Login from './components/Login';
 
 function App() {
 
   return (
     <Router>
 
-      <div className="App">
-        <Login />
+      <div className='App'>
+          <nav>
+              <ul>
+                  <li>
+                      <Link to="/login">Login</Link>
+                  </li>
+                  <li>
+                      <p>test</p>
+                  </li>
+              </ul>
+          </nav>
+
+          <Routes>
+              <Route path="/login" element={<Login />} />
+          </Routes>
       </div>
 
     </Router>
