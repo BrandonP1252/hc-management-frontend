@@ -1,3 +1,4 @@
+import { Box, Button, FormControl, FormLabel, Heading, Input, Stack} from '@chakra-ui/react';
 import React, { useState } from 'react';
 
 const Login = () => {
@@ -27,20 +28,27 @@ const Login = () => {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
+        <Box w="100%" maxW="md" p={4} m="auto" mt={10} pt="150">
+            <Heading as="h2" size="xl" textAlign="center" mb={6}>
+                Login
+            </Heading>
             <form onSubmit={handleLogin}>
-                <div>
-                    <label>Username:</label>
-                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
-                </div>
-                <div>
-                    <label>Password:</label>
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                </div>
-                <button type="submit">Login</button>
+                <Stack spacing={4}>
+                <FormControl id="username" isRequired>
+                    <FormLabel>Username</FormLabel>
+                    <Input type="text" onChange={(e) => setUsername(e.target.value)} />
+                </FormControl>
+                <FormControl id="password" isRequired>
+                    <FormLabel>Password</FormLabel>
+                    <Input type="password" onChange={(e) => setPassword(e.target.value)} />
+                </FormControl>
+                <Button type="submit" colorScheme="teal" size="lg" fontSize="md">
+                    Log In
+                </Button>
+                </Stack>
             </form>
-        </div>
+        </Box>
+
     );
 };
 

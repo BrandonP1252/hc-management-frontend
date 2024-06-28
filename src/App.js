@@ -1,29 +1,20 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
-import Login from './components/Login';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Login from './components/Login/Login';
+import NavigationBar from './components/NavigationBar/NavigationBar';
+
 
 function App() {
 
   return (
     <Router>
-
       <div className='App'>
-          <nav>
-              <ul>
-                  <li>
-                      <Link to="/login">Login</Link>
-                  </li>
-                  <li>
-                      <p>test</p>
-                  </li>
-              </ul>
-          </nav>
-
+          <NavigationBar />
+          <Login />
           <Routes>
               <Route path="/login" element={<Login />} />
           </Routes>
       </div>
-
     </Router>
     
   );
