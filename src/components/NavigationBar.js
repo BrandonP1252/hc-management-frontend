@@ -1,5 +1,4 @@
 import React from 'react'
-import './NavigationBar.css'
 import { Button, Flex } from '@chakra-ui/react';
 
 
