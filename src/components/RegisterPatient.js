@@ -113,9 +113,9 @@ const RegisterPatient = () => {
                   onChange={handleChange}
                 >
                   <option value="">Select gender</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
+                  <option value="male">MALE</option>
+                  <option value="female">FEMALE</option>
+                  <option value="other">OTHER</option>
                 </Select>
               </FormControl>
               <FormControl id="address" isRequired>

@@ -2,7 +2,6 @@ import { Box, Button, FormControl, FormLabel, Heading, Input, Stack} from '@chak
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserService from '../service/UserService';
-import { jwtDecode } from 'jwt-decode';
 
 const Login = () => {
     const [username, setUsername] = useState('');
