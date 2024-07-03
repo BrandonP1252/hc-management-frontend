@@ -17,9 +17,10 @@ const Login = () => {
         e.preventDefault();
             
         try {
-            const token = await UserService.login(username, password)
-            localStorage.setItem('token', token);
-            console.log(token)
+            const data = await UserService.login(username, password)
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('role', data.user.role)
+            console.log("Login Success!")
 
         } catch (error) {
             console.log("Login Failed")
