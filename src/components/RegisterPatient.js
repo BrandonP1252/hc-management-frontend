@@ -35,6 +35,7 @@ const RegisterPatient = () => {
             const data = await response.json();
             if (response.ok) {
               console.log(data);
+              
             } else {
               console.error('Error registering:', data.message);
             }

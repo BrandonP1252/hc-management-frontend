@@ -10,7 +10,7 @@ const Login = () => {
 
 
     const handleRegister = () => {
-        navigate("/register")
+        navigate("/register/patient")
     }
 
     const handleLogin = async (e) => {

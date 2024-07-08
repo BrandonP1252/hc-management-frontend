@@ -13,7 +13,7 @@ function App() {
         <NavigationBar />
         <Routes>
           <Route exact path="/" element={<Login />} />
-          <Route path="/register" element={<RegisterPatient />} />
+          <Route exact path="/register/patient" element={<RegisterPatient />} />
           <Route path="/home" element={<Home />} />
         </Routes>
     </div>
