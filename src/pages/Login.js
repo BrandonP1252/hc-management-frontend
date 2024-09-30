@@ -22,7 +22,7 @@ const Login = () => {
     }
 
     const handleRegister = () => {
-        console.log("register page")
+        navigate("/register")
     }
 
 
