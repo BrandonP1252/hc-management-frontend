@@ -1,9 +1,10 @@
 import {React, useState} from 'react'
 import {Box, Button, FormControl, FormLabel, Input, Select, Stack, Heading, Text} from '@chakra-ui/react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
-
+    
 
     // User data to send back to server
     const [formData, setFormData] = useState({
@@ -20,6 +21,7 @@ const Register = () => {
     // simple error messages
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -28,14 +30,15 @@ const Register = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setErrorMessage(''); // Clear any previous error messages
-        setSuccessMessage(''); // Clear any previous success messages
+        setErrorMessage(''); // clear any previous error messages
+        setSuccessMessage(''); // clear any previous success messages
     
         // post to backend to register the user and add it to the database
         try {
           const response = await axios.post("http://localhost:8080/register", formData);
           setSuccessMessage('You have successfully registered!');
-          console.log(response);
+          navigate("/")
+          
         } catch (error) {
           setErrorMessage(
             error.response?.data?.message || 'An error occurred while registering.'
