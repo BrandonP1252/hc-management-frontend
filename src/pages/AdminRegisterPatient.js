@@ -3,7 +3,7 @@ import {Box, Button, FormControl, FormLabel, Input, Select, Stack, Heading, Text
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Register = () => {
+const AdminRegisterPatient = () => {
     
 
     // User data to send back to server
@@ -37,7 +37,7 @@ const Register = () => {
         try {
           await axios.post("http://localhost:8080/register", formData);
           setSuccessMessage('You have successfully registered!');
-          navigate("/")
+          navigate("/admin/manager")
           
         } catch (error) {
           setErrorMessage(
@@ -51,7 +51,7 @@ const Register = () => {
         <Box bg="#B4D1DE" minH="100vh" display="flex" justifyContent="center" alignItems="center">
             <Box bg="white" p={8} rounded="lg" shadow="lg" maxW="md" w="full">
                 <Heading as="h2" size="lg" textAlign="center" mb={6}>
-                    Register
+                    Add Patient Form
                 </Heading>
 
                 <form onSubmit={handleSubmit}>
@@ -141,7 +141,7 @@ const Register = () => {
                         </FormControl>
 
                         <Button colorScheme="blue" type="submit" mt={4}>
-                        Register
+                        Add
                         </Button>
 
                         {errorMessage && (
@@ -163,4 +163,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default AdminRegisterPatient

@@ -1,9 +1,9 @@
 import {React, useState} from 'react'
-import {Box, Button, FormControl, FormLabel, Input, Select, Stack, Heading, Text} from '@chakra-ui/react';
+import {Box, Button, FormControl, FormLabel, Input, Stack, Heading, Text} from '@chakra-ui/react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Register = () => {
+const AdminRegisterDoctor = () => {
     
 
     // User data to send back to server
@@ -11,11 +11,9 @@ const Register = () => {
         username: '',
         password: '',
         name: '',
-        date_of_birth: '',
         email: '',
         phone: '',
-        gender: '',
-        address: ''
+        specialty: ''
     });
     
     // simple error messages
@@ -35,9 +33,16 @@ const Register = () => {
     
         // post to backend to register the user and add it to the database
         try {
-          await axios.post("http://localhost:8080/register", formData);
+          await axios.post("http://localhost:8080/admin/register/doctor", formData,
+            {
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${JSON.parse(localStorage.getItem("token"))}` 
+                }
+            }
+          );
           setSuccessMessage('You have successfully registered!');
-          navigate("/")
+          navigate("/admin/manager")
           
         } catch (error) {
           setErrorMessage(
@@ -51,7 +56,7 @@ const Register = () => {
         <Box bg="#B4D1DE" minH="100vh" display="flex" justifyContent="center" alignItems="center">
             <Box bg="white" p={8} rounded="lg" shadow="lg" maxW="md" w="full">
                 <Heading as="h2" size="lg" textAlign="center" mb={6}>
-                    Register
+                    Add Doctor Form
                 </Heading>
 
                 <form onSubmit={handleSubmit}>
@@ -86,16 +91,6 @@ const Register = () => {
                             />
                         </FormControl>
 
-                        <FormControl id="date_of_birth" isRequired>
-                            <FormLabel>Date of Birth</FormLabel>
-                            <Input
-                                type="date"
-                                name="date_of_birth"
-                                value={formData.date_of_birth}
-                                onChange={handleChange}
-                            />
-                        </FormControl>
-
                         <FormControl id="email" isRequired>
                             <FormLabel>Email</FormLabel>
                             <Input
@@ -116,32 +111,18 @@ const Register = () => {
                             />
                         </FormControl>
 
-                        <FormControl id="gender" isRequired>
-                            <FormLabel>Gender</FormLabel>
-                            <Select
-                                placeholder="Select gender"
-                                name="gender"
-                                value={formData.gender}
-                                onChange={handleChange}
-                            >
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
-                            </Select>
-                        </FormControl>
-
-                        <FormControl id="address" isRequired>
-                            <FormLabel>Address</FormLabel>
+                        <FormControl id="specialty" isRequired>
+                            <FormLabel>Specialty</FormLabel>
                             <Input
                                 type="text"
-                                name="address"
-                                value={formData.address}
+                                name="specialty"
+                                value={formData.specialty}
                                 onChange={handleChange}
                             />
                         </FormControl>
 
                         <Button colorScheme="blue" type="submit" mt={4}>
-                        Register
+                        Add
                         </Button>
 
                         {errorMessage && (
@@ -163,4 +144,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default AdminRegisterDoctor

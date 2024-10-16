@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Box, Button, FormControl, FormLabel, Input, VStack, useColorModeValue, Heading, Stack} from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import AuthInfo from '../utils/AuthInfo';
-import { jwtDecode } from 'jwt-decode';
 
 
 const Login = () => {
