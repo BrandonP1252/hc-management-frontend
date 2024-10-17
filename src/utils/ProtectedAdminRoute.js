@@ -6,7 +6,6 @@ const ProtectedAdminRoute = () => {
     const role = AuthInfo();
     const admin = role === "[ROLE_ADMIN]" ? true : null;
     return admin ? <Outlet /> : <Navigate to="/" />;
-
 }
 
 

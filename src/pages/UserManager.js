@@ -26,7 +26,7 @@ const UserManager = () => {
             setPatients(response.data);
         }
         catch(error) {
-            console.error('Error fetching patients:', error);
+            console.error("Error fetching patients:", error);
         }
     }
 
@@ -44,7 +44,7 @@ const UserManager = () => {
             setDoctors(response.data);
         }
         catch(error) {
-            console.error('Error fetching doctors:', error);
+            console.error("Error fetching doctors:", error);
         }
 
     }
@@ -100,15 +100,15 @@ const UserManager = () => {
 
         let sortedPatients = [...patients];
 
-        if (value === 'user_id') {
+        if (value === "user_id") {
             sortedPatients.sort((a,b) => a.id - b.id); // Sort by ID
         }
 
-        else if (value === 'name_ascending') {
+        else if (value === "name_ascending") {
             sortedPatients.sort((a,b) => a.name.localeCompare(b.name)); // Sort by name ascending
         }
 
-        else if (value === 'name_descending') {
+        else if (value === "name_descending") {
             sortedPatients.sort((a,b) => b.name.localeCompare(a.name)); // Sort by name descending
         }
 
@@ -121,15 +121,15 @@ const UserManager = () => {
 
         let sortedDoctors = [...doctors];
 
-        if (value === 'user_id') {
+        if (value === "user_id") {
             sortedDoctors.sort((a,b) => a.id - b.id); // Sort by ID
         }
 
-        else if (value === 'name_ascending') {
+        else if (value === "name_ascending") {
             sortedDoctors.sort((a,b) => a.name.localeCompare(b.name)); // Sort by name ascending
         }
 
-        else if (value === 'name_descending') {
+        else if (value === "name_descending") {
             sortedDoctors.sort((a,b) => b.name.localeCompare(a.name)); // Sort by name descending
         }
 

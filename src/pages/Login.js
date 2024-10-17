@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, FormControl, FormLabel, Input, VStack, useColorModeValue, Heading, Stack} from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import AuthInfo from '../utils/AuthInfo';
 
 
 const Login = () => {
@@ -22,7 +23,16 @@ const Login = () => {
             )
             localStorage.setItem("token", JSON.stringify(response.data))
             
-            navigate("/admin/manager")
+            const role = AuthInfo()
+            if (role === "[ROLE_ADMIN]") {
+                navigate("/admin/manager")
+            }
+            else if (role === "[ROLE_DOCTOR]") {
+                navigate("/")
+            }
+            else if (role === "[ROLE_PATIENT]") {
+                navigate("/patient/home")
+            }
 
         }
         catch (error) {
