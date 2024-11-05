@@ -1,8 +1,12 @@
 import { jwtDecode } from "jwt-decode"
 
-const AuthInfo = () => {
+export const AuthInfo = () => {
     const decode = jwtDecode(localStorage.getItem("token"));
     return decode.role;
 }
 
-export default AuthInfo;
+export const getUsername = () => {
+    const decode = jwtDecode(localStorage.getItem("token"));
+    return decode.sub;
+}
+

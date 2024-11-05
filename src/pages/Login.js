@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, FormControl, FormLabel, Input, VStack, useColorModeValue, Heading, Stack} from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import AuthInfo from '../utils/AuthInfo';
+import {AuthInfo} from '../utils/AuthInfo';
 
 
 const Login = () => {
@@ -31,7 +31,7 @@ const Login = () => {
                 navigate("/")
             }
             else if (role === "[ROLE_PATIENT]") {
-                navigate("/patient/home")
+                navigate("/find-doctors")
             }
 
         }
@@ -61,7 +61,7 @@ const Login = () => {
                             <Input
                             type="text"
                             value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            onChange={(event) => setUsername(event.target.value)}
                             placeholder="Enter your username"
                             focusBorderColor="teal.400"
                             />
@@ -72,7 +72,7 @@ const Login = () => {
                             <Input
                             type="password"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(event) => setPassword(event.target.value)}
                             placeholder="Enter your password"
                             focusBorderColor="teal.400"
                             />

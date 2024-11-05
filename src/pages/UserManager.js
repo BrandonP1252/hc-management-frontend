@@ -32,7 +32,7 @@ const UserManager = () => {
 
     const fetchDoctors = async () => {
         try {
-            const response = await axios.get("http://localhost:8080/admin/doctor-list",
+            const response = await axios.get("http://localhost:8080/user/doctor-list",
                 {
                     headers: { 
                         'Content-Type': 'application/json',
@@ -145,6 +145,8 @@ const UserManager = () => {
     return (
         <Box bg="#B4D1DE" minH="100vh" p={5}>
             <Heading as="h2" mb={5}>User Manager</Heading>
+
+            <Heading as="h3" mt={10} mb={5}>Patients</Heading>
 
             {/* Add Patient Button */}
             <Button leftIcon={<AddIcon />} colorScheme="blue" mb={4} onClick={addPatient}>

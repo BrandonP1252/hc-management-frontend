@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
-import AuthInfo from './AuthInfo'
+import { AuthInfo } from './AuthInfo';
 
 const ProtectedAdminRoute = () => {
     const role = AuthInfo();
